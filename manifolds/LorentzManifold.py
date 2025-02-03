@@ -6,8 +6,8 @@ from .Manifold import Manifold
 _eps = 1e-10
 
 class LorentzManifold(Manifold):
-    def __init__(self, args, logger, eps=1e-3, norm_clip=1, max_norm=1e3):
-        super(LorentzManifold, self).__init__(args, logger)
+    def __init__(self, args, eps=1e-3, norm_clip=1, max_norm=1e3):
+        super(LorentzManifold, self).__init__(args)
         self.eps = eps
         self.norm_clip = norm_clip
         self.max_norm = max_norm

@@ -3,8 +3,8 @@ from utils import clip_by_norm, th_dot, clamp_min
 from .Manifold import Manifold
 
 class EuclideanManifold(Manifold):
-    def __init__(self, args, logger, max_norm=1, EPS=1e-8):
-        super(EuclideanManifold, self).__init__(args, logger)
+    def __init__(self, args, max_norm=1, EPS=1e-8):
+        super(EuclideanManifold, self).__init__(args)
         self.max_norm = max_norm
         self.EPS = EPS
 

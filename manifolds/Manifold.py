@@ -1,9 +1,8 @@
 from abc import ABC, abstractmethod
 
 class Manifold(ABC):
-    def __init__(self, args, logger):
+    def __init__(self, args):
         self.args = args
-        self.logger = logger
 
     @abstractmethod
     def init_embed(self, embed, irange):

@@ -1,0 +1,17 @@
+*.out
+*.pyc
+# lightning_logs folder
+lightning_logs/
+# log folder
+log/
+# __pycache__ folder in any directory
+__pycache__/
+# wandb folder
+wandb/
+# node folder
+node/
+# zinc
+*.json
+*.csv
+# models 
+*.ckpt

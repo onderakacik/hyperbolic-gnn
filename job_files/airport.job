@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#SBATCH --partition=gpu_h100
+#SBATCH --gpus=1
+#SBATCH --job-name=airport
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=9
+#SBATCH --time=04:00:00
+#SBATCH --output=airport_report%A.out
+
+module purge
+module load 2023
+module load Anaconda3/2023.07-2
+
+source activate dl2024
+
+cd $HOME/VU/ml4g/hyperbolic-gnn
+
+## ORIGINAL - CENTROID BASED
+# lorentz
+srun python main.py --task 'airport' --debug --select_manifold 'lorentz' --max_epochs 15000 --patience 500
+
+# poincare
+srun python main.py --task 'airport' --debug --select_manifold 'poincare' --max_epochs 15000 --patience 500
+
+# euclidean
+srun python main.py --task 'airport' --debug --select_manifold 'euclidean' --max_epochs 15000 --patience 500
+
+## TANGENT SPACE
+# lorentz extended
+srun python main.py --task 'airport' --debug --use_tangent --select_manifold 'lorentz' --max_epochs 15000 --patience 500
+
+# poincare extended
+srun python main.py --task 'airport' --debug --use_tangent --select_manifold 'poincare' --max_epochs 15000 --patience 500
+
+# euclidean extended
+srun python main.py --task 'airport' --debug --use_tangent --select_manifold 'euclidean' --max_epochs 15000 --patience 500

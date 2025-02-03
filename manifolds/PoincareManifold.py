@@ -5,8 +5,8 @@ from utils import clip_by_norm, th_dot, th_norm, th_atanh
 from .Manifold import Manifold
 
 class PoincareManifold(Manifold):
-    def __init__(self, args, logger, EPS=1e-5, PROJ_EPS=1e-5):
-        super(PoincareManifold, self).__init__(args, logger)
+    def __init__(self, args, EPS=1e-5, PROJ_EPS=1e-5):
+        super(PoincareManifold, self).__init__(args)
         self.EPS = EPS
         self.PROJ_EPS = PROJ_EPS
         self.tanh = nn.Tanh()
